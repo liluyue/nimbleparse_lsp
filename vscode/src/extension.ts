@@ -16,6 +16,7 @@ import {
 
 import { config } from 'process';
 import { execFileSync } from 'child_process';
+import { ToolDataProvider } from './provider/ToolDataProvider';
 
 let lspClient: LanguageClient;
 
@@ -43,6 +44,8 @@ interface ServerDocumentParams {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+    vscode.window.registerTreeDataProvider("nimbleparse_lsp", new ToolDataProvider(context));
+
     const lsp_path_relative = path.resolve(path.join(context.extensionPath, "bin"), "nimbleparse_lsp");
     const lsp_path_relative_exe = path.resolve(path.join(context.extensionPath, "bin"), "nimbleparse_lsp.exe");
     // Try and find it relative to the extension, or fall back to the PATH.

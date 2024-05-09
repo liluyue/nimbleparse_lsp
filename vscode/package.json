@@ -49,7 +49,25 @@
         "command": "nimbleparse_lsp.railroad.svg",
         "title": "Generate railroad diagram"
       }
-    ]
+    ],
+    "viewsContainers": {
+			"activitybar": [
+				{
+					"icon": "$(notebook)",
+					"id": "nimbleparse_lsp",
+					"title": "nimbleparse lsp"
+				}
+			]
+		},
+		"views": {
+			"nimbleparse_lsp": [
+				{
+					"id": "nimbleparse_lsp",
+					"name": "nimbleparse lsp"
+				}
+			]
+		}
+
   },
   "scripts": {
     "vscode:prepublish": "npm run esbuild-base -- --minify",
